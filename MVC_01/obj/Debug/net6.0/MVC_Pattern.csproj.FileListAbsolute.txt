@@ -1,0 +1,15 @@
+/home/vokhanh/development/MVC_Pattern/bin/Debug/net6.0/MVC_Pattern
+/home/vokhanh/development/MVC_Pattern/bin/Debug/net6.0/MVC_Pattern.deps.json
+/home/vokhanh/development/MVC_Pattern/bin/Debug/net6.0/MVC_Pattern.runtimeconfig.json
+/home/vokhanh/development/MVC_Pattern/bin/Debug/net6.0/MVC_Pattern.dll
+/home/vokhanh/development/MVC_Pattern/bin/Debug/net6.0/ref/MVC_Pattern.dll
+/home/vokhanh/development/MVC_Pattern/bin/Debug/net6.0/MVC_Pattern.pdb
+/home/vokhanh/development/MVC_Pattern/obj/Debug/net6.0/MVC_Pattern.csproj.AssemblyReference.cache
+/home/vokhanh/development/MVC_Pattern/obj/Debug/net6.0/MVC_Pattern.GeneratedMSBuildEditorConfig.editorconfig
+/home/vokhanh/development/MVC_Pattern/obj/Debug/net6.0/MVC_Pattern.AssemblyInfoInputs.cache
+/home/vokhanh/development/MVC_Pattern/obj/Debug/net6.0/MVC_Pattern.AssemblyInfo.cs
+/home/vokhanh/development/MVC_Pattern/obj/Debug/net6.0/MVC_Pattern.csproj.CoreCompileInputs.cache
+/home/vokhanh/development/MVC_Pattern/obj/Debug/net6.0/MVC_Pattern.dll
+/home/vokhanh/development/MVC_Pattern/obj/Debug/net6.0/ref/MVC_Pattern.dll
+/home/vokhanh/development/MVC_Pattern/obj/Debug/net6.0/MVC_Pattern.pdb
+/home/vokhanh/development/MVC_Pattern/obj/Debug/net6.0/MVC_Pattern.genruntimeconfig.cache
