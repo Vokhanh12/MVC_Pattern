@@ -6,5 +6,5 @@ build_property.ProjectTypeGuids =
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = MVC_Pattern
-build_property.ProjectDir = /home/vokhanh/development/design_pattern_csharp/MVC_01/
+build_property.RootNamespace = MVC_02
+build_property.ProjectDir = /home/vokhanh/development/design_pattern_csharp/MVC_02/

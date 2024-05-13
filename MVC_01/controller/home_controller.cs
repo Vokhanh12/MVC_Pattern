@@ -4,7 +4,6 @@ namespace MyApp
 {
     class HomeController
     {
-
         private StudentModel _model;
 
         private HomeView _view;
@@ -53,10 +52,6 @@ namespace MyApp
         {
             _view.printStudentDetails(this._model.Id, this._model.Name);
         }
-
-
-
-
 
     }
 }
