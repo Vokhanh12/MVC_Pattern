@@ -180,6 +180,50 @@ END;
 ```
 
 
+<h3>Insert SQL</h3>
+
+
+```sql
+-- Chèn các dòng vào bảng Items 
+INSERT INTO Users (id, name, UserType)
+VALUES ('us001', 'Manager', 'M');
+
+INSERT INTO Users (id, name, UserType)
+VALUES ('us002', 'Buyeer', 'B');
+
+INSERT INTO Users (id, name, UserType)
+VALUES ('us003', 'Employee', 'E');
+
+-- Chèn một dòng vào bảng JobCatalog
+INSERT INTO JobCatalog (user_id, store_id)
+VALUES ('us003', 'st001');
+
+-- Chèn một dòng vào bảng Stores
+INSERT INTO Stores (id, user_id, name)
+VALUES ('st001', 'us001', 'Cửa hàng 1');
+
+-- Chèn một dòng vào bảng Items
+INSERT INTO Items (id, store_id, name, price)
+VALUES ('it001', 'st001', N'Tra  sua', '25000'); 
+-- Chèn một dòng vào bảng Items
+
+INSERT INTO Items (id, store_id, name, price)
+VALUES ('it002', 'st001', N'ca phe', '20000'); 
+
+
+-- Chèn một dòng vào bảng Bills
+INSERT INTO Bills (id, store_id, paymentType)
+VALUES ('bi001', 'st001', 'P');
+
+-- Chèn một dòng vào bảng ProductCatalog
+INSERT INTO ProductCatalog(bill_id, item_id, tax, count, tax_amount_total, amount_total)
+SELECT 'bi001', 'it001', 0.1, 2, price * 0.1, (price * 2) + (price * 0.1)
+FROM Items
+WHERE id = 'it001'; 
+
+```
+
+
 
 
 
