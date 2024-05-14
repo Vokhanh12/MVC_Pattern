@@ -59,6 +59,130 @@ Document: https://guides.visual-paradigm.com/from-use-case-to-mvc-framework-a-gu
 ![image](https://github.com/Vokhanh12/MVC_Pattern/assets/36543564/dc09b2f1-0752-4a01-99be-a4aebdc20250)
 
 
+<h2>MVC 03</h2>
+
+
+<h4>SQL Server</h4>
+```bash
+
+CREATE DATABASE BuyProductOnline;
+GO
+
+USE BuyProductOnline;
+GO
+
+CREATE TYPE UserType FROM VARCHAR(10);
+CREATE TYPE PaymentType FROM VARCHAR(10);
+
+CREATE TABLE Users (
+    id VARCHAR(5) PRIMARY KEY,
+    name NVARCHAR(25) NOT NULL,
+    UserType NVARCHAR(1) NOT NULL,
+    CONSTRAINT CHK_UserType CHECK (UserType IN ('B', 'M', 'E'))
+);
+GO
+
+CREATE TABLE Stores (
+    id VARCHAR(5) PRIMARY KEY,
+    user_id VARCHAR(5) NOT NULL,
+    name NVARCHAR(25) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+);
+GO
+
+CREATE TABLE JobCatalog(
+    user_id VARCHAR(5) NOT NULL,  
+    store_id VARCHAR(5) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(id),
+    FOREIGN KEY (store_id) REFERENCES Stores(id)
+);
+GO
+
+CREATE TABLE Items(
+    id VARCHAR(5) PRIMARY KEY,
+    store_id VARCHAR(5) NOT NULL,
+    name NVARCHAR(25) NOT NULL,
+    price NVARCHAR(25) NOT NULL,
+    FOREIGN KEY (store_id) REFERENCES Stores(id)
+);
+GO
+
+CREATE TABLE Bills(
+    id VARCHAR(5) PRIMARY KEY,
+    store_id VARCHAR(5) NOT NULL,
+    paymentType NVARCHAR(1) NOT NULL,
+    CONSTRAINT CHK_PaymentType CHECK (paymentType IN ('P', 'A')),
+    FOREIGN KEY (store_id) REFERENCES Stores(id)
+);
+GO
+
+CREATE TABLE ProductCatalog(
+    bill_id VARCHAR(5) NOT NULL,
+    item_id VARCHAR(5) NOT NULL,
+    tax FLOAT NOT NULL,
+    count INTEGER NOT NULL,
+    amount_total FLOAT,
+    FOREIGN KEY (bill_id) REFERENCES Bills(id),
+    FOREIGN KEY (item_id) REFERENCES Items(id)
+);
+GO
+
+-- Tạo trigger để áp dụng ràng buộc kiểu người dùng trên JobCatalog
+CREATE OR ALTER TRIGGER trg_JobCatalog_UserTypeCheck
+ON JobCatalog
+INSTEAD OF INSERT
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted i
+        JOIN Users u ON i.user_id = u.id
+        WHERE u.UserType <> 'E'
+    )
+    BEGIN
+        RAISERROR ('Chỉ người dùng thuộc loại "E" mới có thể được gán vào công việc.', 16, 1);
+        ROLLBACK TRANSACTION;
+        RETURN;
+    END;
+
+    INSERT INTO JobCatalog (user_id, store_id)
+    SELECT user_id, store_id
+    FROM inserted;
+END;
+GO
+
+
+-- Tạo trigger để áp dụng ràng buộc kiểu người dùng trên Stores
+CREATE OR ALTER TRIGGER trg_stores_UserTypeCheck
+ON Stores
+INSTEAD OF INSERT
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted i
+        JOIN Users u ON i.user_id = u.id
+        WHERE u.UserType <> 'M'
+    )
+    BEGIN
+        RAISERROR ('Chỉ người dùng thuộc loại "P" mới có thể được gán vào công việc.', 16, 1);
+        ROLLBACK TRANSACTION;
+        RETURN;
+    END;
+
+    INSERT INTO Stores (id, user_id, name)
+    SELECT id, user_id, name
+    FROM inserted;
+END;
+
+
+
+
+
+
+
+```
+
 
 
 
