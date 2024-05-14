@@ -61,6 +61,16 @@ Document: https://guides.visual-paradigm.com/from-use-case-to-mvc-framework-a-gu
 
 <h2>MVC 03</h2>
 
+<h4>ERD Diagrame</h4>
+
+
+![image](https://github.com/Vokhanh12/MVC_Pattern/assets/36543564/42c60920-3cd0-4807-bbef-52a51490be73)
+
+
+
+![image](https://github.com/Vokhanh12/MVC_Pattern/assets/36543564/8ae852a0-8319-409b-9140-98c449a379e1)
+
+
 
 <h4>SQL Server</h4>
 
