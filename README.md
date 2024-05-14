@@ -63,7 +63,9 @@ Document: https://guides.visual-paradigm.com/from-use-case-to-mvc-framework-a-gu
 
 
 <h4>SQL Server</h4>
-```bash
+
+
+```sql
 
 CREATE DATABASE BuyProductOnline;
 GO
@@ -174,12 +176,6 @@ BEGIN
     SELECT id, user_id, name
     FROM inserted;
 END;
-
-
-
-
-
-
 
 ```
 
